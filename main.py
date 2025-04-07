@@ -67,12 +67,22 @@ def run_tournament(folder, rounds=100, custom = None):
         for j in range(len(names)):
             if i!=j:
                 name1, name2 = names[i], names[j]
+                if name1 == "denis":
+                    print("Begining:   "+
+                        str(scores[name1]) + "   " + name1 + "      -----       " + name2)
+
                 s1, s2 = play_match(strategies[name1], strategies[name2], rounds, custom)
                 scores[name1] += s1
+                if name1 == "denis":
+                    print("End:    "+
+                        str(scores[name1]) + "   " + name1 + "      -----       " +name2)
+
                 #print(f"{name1} vs {name2} => {s1}:{s2}")
+    i = 1
     print("\n Final Scores:")
     for name, score in sorted(scores.items(), key=lambda x: x[1], reverse=True):
-        print(f"{name}: {score}")
+        print(f"{i} {name}: {score}")
+        i+= 1
 
 if __name__ == "__main__":
     folder_path = "Algorithms" 
