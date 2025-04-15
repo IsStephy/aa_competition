@@ -64,6 +64,29 @@ def run_tournament_step_by_step(folder, round_name="round", rounds=100, update_c
     match_results = []
 
     names = list(strategies.keys())
+<<<<<<< HEAD
+=======
+    for i in range(len(names)):
+        for j in range(len(names)):
+            if i!=j:
+                name1, name2 = names[i], names[j]
+                if name1 == "denis":
+                    print("Begining:   "+
+                        str(scores[name1]) + "   " + name1 + "      -----       " + name2)
+
+                s1, s2 = play_match(strategies[name1], strategies[name2], rounds, custom)
+                scores[name1] += s1
+                if name1 == "denis":
+                    print("End:    "+
+                        str(scores[name1]) + "   " + name1 + "      -----       " +name2)
+
+                #print(f"{name1} vs {name2} => {s1}:{s2}")
+    i = 1
+    print("\n Final Scores:")
+    for name, score in sorted(scores.items(), key=lambda x: x[1], reverse=True):
+        print(f"{i} {name}: {score}")
+        i+= 1
+>>>>>>> abc990e81ef04e0bbb4e2266f3641bedb1a15709
 
     def play_and_update(i):
         if i < len(names):
